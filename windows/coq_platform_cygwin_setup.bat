@@ -227,6 +227,7 @@ REM Cygwin setup does not touch the ACLs of existing folders.
 ECHO "========== DOWNLOAD CYGWIN SETUP =========="
 
 IF NOT EXIST "%CYGWIN_LOCAL_CACHE_WFMT%\%SETUP%" (
+  if not exist "%CYGWIN_LOCAL_CACHE_WFMT%\nul" mkdir "%CYGWIN_LOCAL_CACHE_WFMT%"
   powershell -Command "(New-Object Net.WebClient).DownloadFile('http://www.cygwin.com/%SETUP%', '%CYGWIN_LOCAL_CACHE_WFMT%/%SETUP%')"
 )
 
